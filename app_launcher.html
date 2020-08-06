@@ -16,6 +16,8 @@
     <!-- <a href="公式サイトのURLとかここに入れるべし！">サイトを開く</a> -->
 
     <script>
+    	var ua = "Mozilla/5.0 (iPhone; CPU iPhone OS 12_1_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/12.0 Mobile/15E148 Safari/604.1";
+    
         // アプリを開く。アプリがインストールされていなければサイトを開く。
         function launchApp() {
             var IOS_SCHEME = 'twitter://user?screen_name=TwitterJP';
@@ -25,11 +27,13 @@
             var PC_SITE = '公式サイトのURLとかここに入れるべし！'
 
             var userAgent = navigator.userAgent.toLowerCase();
+            console.log("HERE1");
             // iPhone端末ならアプリを開くかApp Storeを開く。
-            if (userAgent.search(/iphone|ipad|ipod/) > -1) {
-                launch_frame.location.href = IOS_SCHEME;
+            if (ua.toLowerCase().search(/iphone|ipad|ipod/) > -1) {
+            	console.log("HERE2");
+                //launch_frame.location.href = IOS_SCHEME;
                 setTimeout(function() {
-                    location.href = IOS_STORE;
+                    location.href = IOS_SCHEME;
                 }, 5000);
             }
 //            // Android端末ならアプリを開くかGoogle Playを開く。
